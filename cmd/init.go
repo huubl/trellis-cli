@@ -55,7 +55,7 @@ func (c *InitCommand) Run(args []string) int {
 
 	c.UI.Info(color.GreenString("✓ Virtualenv created"))
 
-	pip := CommandExecWithStderrOnly("pip", []string{"install", "-r", "requirements.txt"}, c.UI)
+	pip := CommandExecWithStderrOnly("python -m pip", []string{"install", "-r", "requirements.txt"}, c.UI)
 
 	s := spinner.New(spinner.CharSets[14], 100*time.Millisecond)
 	s.Suffix = " Installing pip dependencies (pip install -r requirements.txt) ..."
